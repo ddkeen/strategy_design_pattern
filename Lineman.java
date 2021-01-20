@@ -27,18 +27,16 @@ public class Lineman extends Player {
      * Determines the defencive behavior for this lineman for this play, lineman can block, defend, strip, or sack
      */
     public void setDefenceBehavior(){
-        int defend = rand.nextInt(3);
-        if (defend == 0)
-        {
-            this.defenceBehavior = new BlockBehavior();
-        }
-        else if (defend == 1)
-        {
-            this.defenceBehavior = new StripBehavior();
-        }
-        else
-        {
-            this.defenceBehavior = new SackBehavior();
-        }
+		switch(rand.nextInt(3)) {
+		case 0:
+			this.defenceBehavior = new BlockBehavior();
+			break;
+		case 1:
+			this.defenceBehavior = new StripBehavior();
+			break;
+		case 2:
+			this.defenceBehavior = new SackBehavior();
+			break;
+		}
     }
 }

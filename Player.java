@@ -9,8 +9,8 @@
 public abstract class Player{
     protected String name;
     private boolean defence;
-    DefenceBehavior defenceBehavior;
-    OffenceBehavior offenceBehavior;
+    protected DefenceBehavior defenceBehavior;
+    protected OffenceBehavior offenceBehavior;
 
     /**
      * Creates a new Player with the indicated name
@@ -18,6 +18,8 @@ public abstract class Player{
      */
     public Player(String name){
         this.name = name;
+        this.setOffenceBehavior();
+        this.setDefenceBehavior();
     }
     /**
      * Determine what the player will do on defence for a play
@@ -34,32 +36,21 @@ public abstract class Player{
      * @return a string containing the players name and what they are doing on the play
      */
     public String play(){
-        this.setOffenceBehavior();
-        this.setDefenceBehavior();
        if (defence)
        {
-           if (defenceBehavior == null)
-                return "not playing";
-           else
-                return defenceBehavior.play();
-       }
-       else if(!defence)
-       {
-            if (offenceBehavior == null)
-                return "not playing";
-            else
-                return offenceBehavior.play();
-       }
-       else
-       {
-           return "not playing";
+           if (defenceBehavior == null) return "not playing";
+            return defenceBehavior.play();
+       } else {
+            if (offenceBehavior == null) return "not playing";
+            return offenceBehavior.play();
        }
     }
+
     /**
      * Switches players from offence to defence or from defence to offence
      */
     public void turnover()
     {
-        defence = !defence;
+        this.defence = !this.defence;
     }
 }

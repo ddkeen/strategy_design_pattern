@@ -7,7 +7,7 @@ import java.util.Random;
  * @author ddkeen
  */
 public class QuarterBack extends Player{
-    Random rand = new Random();
+    private Random rand = new Random();
     /**
      * Creates a new QuarterBack with the indicated name
      * @param name the name of the QuarterBack
@@ -20,18 +20,17 @@ public class QuarterBack extends Player{
      * Determines the offensice behavior for this QuarterBack for this play, QuarterBacks can run or pass on offence
      */
     public void setOffenceBehavior(){
-        int pass = rand.nextInt(2);
-        if(pass == 1)
-        {
+        if(rand.nextBoolean()) {
             this.offenceBehavior = new PassBehavior();
-        }
-        else
+        } else {
             this.offenceBehavior = new RunBehavior();
+        }
     }
+
     /**
      * Set the defensice behavior for this QuarterBack for this play, QuarterBacks do not play on defence
      */
     public void setDefenceBehavior(){
-        defenceBehavior = null;
+        this.defenceBehavior = null;
     }
 }
