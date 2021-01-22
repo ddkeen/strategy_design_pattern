@@ -6,9 +6,9 @@ public class Football {
 	
 	public void play() {
 		Player[] players = new Player[3];
-		players[0] = new QuarterBack("Russel Wilson");
-		players[1] = new Receiver("Tyler Lockett");
-		players[2] = new Lineman("BJ Finney");
+		players[0] = new QuarterBack("Aaron Rodgers");
+		players[1] = new Receiver("Davante Adams");
+		players[2] = new Lineman("BJ Raji");
 		
 		System.out.println("***** Offencive Plays *****");
 		displayPlays(players);
